@@ -55,3 +55,4 @@ Visit `http://localhost:8080` to see the complete integrated application.
 You can also visit the individual micro frontends:
 - Products: `http://localhost:8081`
 - Cart: `http://localhost:8082`
+
