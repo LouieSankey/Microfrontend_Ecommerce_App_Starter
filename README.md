@@ -1,34 +1,58 @@
-# Simple Products Page
+# Micro Frontend Products Application
 
-A basic webpack setup demonstrating bundle injection and development server usage.
+This project demonstrates a micro frontend architecture using Webpack Module Federation.
 
 ## Project Structure
 
 ```
-├── src/
-│   └── index.js         # Main JavaScript file that generates product names
-├── public/
-│   └── index.html       # HTML template
+├── container/           # Host application that integrates all micro frontends
+├── products/            # Products micro frontend
+├── cart/                # Cart micro frontend
 └── webpack.config.js    # Webpack configuration
 ```
 
 ## How It Works
 
-1. **Webpack Development Server**
-   - Runs on `localhost:8081`
-   - Bundles `src/index.js` and its dependencies into `main.js`
-   - HtmlWebpackPlugin automatically injects the bundle into the HTML
+1. **Container Application**
+   - Runs on `localhost:8080`
+   - Integrates the Products and Cart micro frontends
+   - Acts as the host application in the Module Federation setup
 
-2. **Main Features**
-   - Uses `faker` to generate random product names
-   - Demonstrates automatic bundle injection
-   - Hot reloading for development
+2. **Products Micro Frontend**
+   - Runs on `localhost:8081`
+   - Generates and displays random product names using faker
+   - Can run independently or as part of the container
+
+3. **Cart Micro Frontend**
+   - Runs on `localhost:8082`
+   - Manages shopping cart functionality
+   - Can run independently or as part of the container
+
+4. **Module Federation**
+   - Enables runtime integration of independently built JavaScript applications
+   - Allows sharing of components and dependencies between applications
 
 ## Running the Project
 
+To run the complete application, you need to start all three services:
+
 ```bash
-# Start the development server
-npm run start
+# Start the Products micro frontend
+cd products
+npm start
+
+# Start the Cart micro frontend
+cd cart
+npm start
+
+# Start the Container application
+cd container
+npm start
 ```
 
-Visit `http://localhost:8081` to see the application running. 
+Visit `http://localhost:8080` to see the complete integrated application.
+
+You can also visit the individual micro frontends:
+- Products: `http://localhost:8081`
+- Cart: `http://localhost:8082`
+
