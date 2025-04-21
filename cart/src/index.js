@@ -1,5 +1,3 @@
-import faker from "faker";
-
-const cartText = `<div>You have ${faker.random.number()} items in your cart</div>`;
-
-document.querySelector('#dev-cart').innerHTML = cartText;
+//having the bootstrap with the index.js file allows shared modules to run asynchronously, without this you might
+//encounter the error: 'shared module is not available for consumption'
+import('./bootstrap');

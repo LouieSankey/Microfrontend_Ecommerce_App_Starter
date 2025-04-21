@@ -1,10 +1,3 @@
-import faker from "faker";
-
-let products = ''
-
-
-for (let i = 0; i < 5; i++) {
-  products += `<div>${faker.commerce.productName()}</div>`;
-}
-
-document.querySelector('#dev-products').innerHTML = products;
+//having the bootstrap with the index.js file allows shared modules to run asynchronously, without this you might
+//encounter the error: 'shared module is not available for consumption'
+import('./bootstrap');
